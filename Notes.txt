@@ -1,0 +1,45 @@
+Steps I took to make the app (You're welcome...)
+
+Use Vite - "npm create vite@latest"
+-> Vite is a build tool and development server for modern web applications. It's like create-react-app but faster when it loads up the development server
+	(i.e. when running development). Create-react-app can be very slow when running big applications
+-> Install "react-redux" (State management library)
+-> Install "@reduxjs/toolkit" (A wrapper around redux that makes everything easy)
+-> Install "react-router-dom" (Gives navigation to website)
+-> Install (material ui stuff) - "@mui/material @emotion/react @emotion/styled @mui/icons-material" (All 4 are related to material ui;
+	 i) Gives all material ui components
+	 ii) & iii) Gives you some of the ways in which you can style the mui library.
+	 iv) Gives all the icons mui has for free
+-> Install "@mui/x-data-grid" (Represents the mui table which is very powerful)
+-> Install "npm i -D" (-D represents dev dependencies, these are dependencies that don't need to be in the final build, 
+	just so that you are importing less libraries in the final build)
+-> Install "@types/react-dom" (This 'types' library is for the use of react-router-dom which needs some extra 'types' to be used with typescript)
+-> Now go into the client->src folder and; 
+	i)  Delete App.css
+	ii) Go into App.tsx and delete everything inside the App div (If it isn't there create it) and change the className to lowercase i.e "app",
+		remove the useState and delete all the imports
+	ii) Delete everything inside index.css
+	iv) Go to google fonts and look for the font "Inter" and grab 400, 600, 700, select @import on the LHS, 
+		copy everything inside the </style> and paste it inside the index.css
+	v) Inside the index .css provide the default styles for {html, body, #root, .app }
+-> Do eslint configurations for the app - "npm i -D eslint eslint-config-react-app"
+	-It's "-D" cause it's a dev dependency. In that it's not needed for the final build
+	-The rest of the install means that it's basically setting the create-react-app initialised eslint default settings into Vite
+-> Inside the client directory create a new file ".eslintrc.json" and write the code that gives the basic defaults for eslinting
+	-You basically get more warnings on your errors, the erros have more descriptive solutions to help fix them
+->Remove eslintrc.cjs file if it has errors
+-> Create .env.local file and add "VITE_BASE_URL=http://localhost:1337"
+-> For whatever reason (Do some research) typescript doesn't like environment variables so;
+	- Go to tsconfig.json and inside compilerOptions at the bottom, add; "types": ["vite/client"]
+	- That added setting enables the uses of the environment variables inside .env.local without errors
+-> At this point, it's best to configure imports. The normal way imports are used is ./something. These are called relative imports
+	- Instead set up absolute imports that are easier to read to avoid this "../../../../" and use "@" instead which starts from the src directory
+	- To do this, import "npm i -D @types/node" and go to vite.config.ts file to set it up
+	- Go to tsconfig.json and finish the set up by adding "paths": {"@/*": ["./src/*"]} inside compilerOptions at the top
+-> Create theme.ts file inside src directory and add the various colours and settings for dark and light themes
+	- So in this file there is the variable "tokens". In the design space there's "design tokens". These tokens just represent different colors (variations of different hues of the same colour)
+	- To generate these hues, you can install 'Tailwind Shades' extension, highlight the colour you want i.e #b3b6c2 and do ctrl+k ctrl+g and the hues related to that color will be generated
+-> Set up configurations for typescript for material ui since the theme settings are extended a little bit since custom settings have been added (the ...tokens.primary which don't exist in the mui theme settings
+	-To do this, add a new file "expanded-theme.ts" inside the src directory and add some code in it
+
+
