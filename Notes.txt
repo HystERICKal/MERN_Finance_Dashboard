@@ -1,3 +1,24 @@
+Links I found useful:
+
+nodemon: https://github.com/remy/nodemon
+vite: https://vitejs.dev/guide/ 
+react router: https://reactrouter.com/en/v6.3.0/getting-started/installation
+react dropzone: https://github.com/react-dropzone/react-dropzone
+redux toolkit: https://redux-toolkit.js.org/introduction/getting-started
+redux toolkit query: https://redux-toolkit.js.org/rtk-query/overview
+regression: https://github.com/tom-alexander/regression-js
+mui: https://mui.com/material-ui/getting-started/overview/
+mui data grid: https://mui.com/x/api/data-grid/data-grid/
+recharts: https://recharts.org/en-US/
+flexbox guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+css grid cheatsheet: https://grid.malven.co/
+data model diagram: https://lucid.app/users/registerOrLogin/free?showLogin=false&invitationId=inv_863ef5c2-6c3d-42ec-85da-c522ddb15430&productOpt=chart&invitationType=documentAcceptance&returnUrlOverride=%2Flucidchart%2F23d63d3a-f89c-472d-99d3-4c0a35c67816%2Fedit%3Fviewport_loc%3D81%252C175%252C856%252C919%252C0_0%26invitationId%3Dinv_863ef5c2-6c3d-42ec-85da-c522ddb15430viewport_loc%253D81%252C175%252C856%252C919%252C0_0%26invitationId%3Dinv_863ef5c2-6c3d-42ec-85da-c522ddb15430
+redux dev tools: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
+pesticide extension: https://chrome.google.com/webstore/detail/pesticide-for-chrome/bakpbgckdnepkmkeaiomhmfcnejndkbi
+fly io node: https://fly.io/docs/languages-and-frameworks/node/
+vercel: https://vercel.com/
+docker: https://www.docker.com/products/docker-desktop/
+
 Steps I took to make the app (You're welcome...)
 
 Use Vite - "npm create vite@latest"
@@ -41,5 +62,27 @@ Use Vite - "npm create vite@latest"
 	- To generate these hues, you can install 'Tailwind Shades' extension, highlight the colour you want i.e #b3b6c2 and do ctrl+k ctrl+g and the hues related to that color will be generated
 -> Set up configurations for typescript for material ui since the theme settings are extended a little bit since custom settings have been added (the ...tokens.primary which don't exist in the mui theme settings
 	-To do this, add a new file "expanded-theme.ts" inside the src directory and add some code in it
-
+-> Configure App.tsx to use the themesettings in the theme.ts file
+	-To do this, use the "useMemo" hook.
+-> Set up <ThemeProvider>
+	-Add a CssBaseline
+-> Configure <BrowserRouter>
+	-Add box component from material ui (you can pass css props directly into the component)
+		-Set up <Routes>
+		-Set up <Navbar/>
+-> Create folder structure or folder architecture (components, scenes, state)
+	-Good practice to separate "scenes" folder and "states" folder
+	-scenes folder represents the various re-usable components
+	-components and scenes basically represent the UI layer
+	-It's good practice to separate that from the data, since in most cases the data is re-usable in multiple pages
+	-states folder contains data that can be re-usable in multiple ways across the web app
+	-some fancy architectures you won't need to worry about include (ducks-pattern feature based patterns, default react pattern)
+	-check out this resource to learn more -> https://medium.com/geekculture/react-js-architecture-features-folder-structure-design-pattern-70b7b9103f22
+	-check out this resource as well -> https://medium.com/@matthew.holman/what-is-redux-ducks-46bcb1ad04b7
+	-But really the best practice is to organise folders in a way that they can be easily found
+	-Try also to keep the folder structure flat as possible, i.e. avoid going in too deep with subfolders, to maintan navigability
+-> Create index.tsx inside scenes>navbar>index.tsx
+	-If ES7 snippets aren't working (for rafce/tsrafce) just use CTRL + ALT + R for windows (CMD + Shift + P or just use CMD + Shift + R for mac)
+-> Since some styles like (display="flex", justifyContent="space-between", alignItems="center") are gonna be re-used alot, it's best practice to create a re-useable component to represent them.
+	-So in the components folder add FlexBetween.tsx
 
