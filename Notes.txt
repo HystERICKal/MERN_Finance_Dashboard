@@ -12,6 +12,7 @@ mui data grid: https://mui.com/x/api/data-grid/data-grid/
 recharts: https://recharts.org/en-US/
 flexbox guide: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 css grid cheatsheet: https://grid.malven.co/
+grid-template-areas: https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas
 data model diagram: https://lucid.app/users/registerOrLogin/free?showLogin=false&invitationId=inv_863ef5c2-6c3d-42ec-85da-c522ddb15430&productOpt=chart&invitationType=documentAcceptance&returnUrlOverride=%2Flucidchart%2F23d63d3a-f89c-472d-99d3-4c0a35c67816%2Fedit%3Fviewport_loc%3D81%252C175%252C856%252C919%252C0_0%26invitationId%3Dinv_863ef5c2-6c3d-42ec-85da-c522ddb15430viewport_loc%253D81%252C175%252C856%252C919%252C0_0%26invitationId%3Dinv_863ef5c2-6c3d-42ec-85da-c522ddb15430
 redux dev tools: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 pesticide extension: https://chrome.google.com/webstore/detail/pesticide-for-chrome/bakpbgckdnepkmkeaiomhmfcnejndkbi
@@ -85,4 +86,11 @@ Use Vite - "npm create vite@latest"
 	-If ES7 snippets aren't working (for rafce/tsrafce) just use CTRL + ALT + R for windows (CMD + Shift + P or just use CMD + Shift + R for mac)
 -> Since some styles like (display="flex", justifyContent="space-between", alignItems="center") are gonna be re-used alot, it's best practice to create a re-useable component to represent them.
 	-So in the components folder add FlexBetween.tsx
+-> Create index.tsx inside scenes>dashboard>index.tsx
+	-use Flexbox or grid? (do research)
+	-Flexbox is great for one dimensional layout i.e. One directional layout, like a navbar for instance (horizontal or vertical layout)
+	-If the layout is both horizontal and vertical (two dimensional), then grid is more cleaner and easier to use.
+	-check the cheat sheet above to learn more about grid layouts
+	-the cheat sheet doesn't have grid areas in it though (very special)
+	-grid-template-area cheat sheet included as well
 

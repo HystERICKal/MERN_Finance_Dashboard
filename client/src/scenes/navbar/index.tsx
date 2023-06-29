@@ -22,10 +22,36 @@ const Navbar = (props: Props) => {
       </FlexBetween>
 
       {/* RIGHT SIDE */}
-      <FlexBetween>
+      <FlexBetween gap="2rem">
         {/* "&:hover" is a pseudo-selector */}
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}></Box>
-        <Box></Box>
+        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+          <Link
+            to="/"
+            onClick={() => setSelected("dashboard")}
+            style={{
+              //If dashboard is selected then iherit color from parent
+              //Else, set color to that grey color
+              color: selected === "dashboard" ? "inherit" : palette.grey[700],
+              textDecoration: "inherit",
+            }}
+          >
+            dashboard
+          </Link>
+        </Box>
+        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+          <Link
+            to="/predictions"
+            onClick={() => setSelected("predictions")}
+            style={{
+              //If dashboard is selected then iherit color from parent
+              //Else, set color to that grey color
+              color: selected === "predictions" ? "inherit" : palette.grey[700],
+              textDecoration: "inherit",
+            }}
+          >
+            predictions
+          </Link>
+        </Box>
       </FlexBetween>
     </FlexBetween>
   );
