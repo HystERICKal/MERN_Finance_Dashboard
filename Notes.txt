@@ -93,4 +93,42 @@ Use Vite - "npm create vite@latest"
 	-check the cheat sheet above to learn more about grid layouts
 	-the cheat sheet doesn't have grid areas in it though (very special)
 	-grid-template-area cheat sheet included as well
-
+-> In the components folder create DashboardBox.tsx
+	-This also will be a styled component (won't need the whole tsrafce shortcut template)
+-> Divide the dashboard into 3 rows
+	-i.e top three boxes (a,d,g), middle three boxes (b,e,h), bottom four boxes (c,f,i,j)
+	-inside, scenes>dashboard, create the three rows
+-> Upto this point, typescript hasn't been used, since we haven't really interacted with data (backend)
+	-but later on when API calls start getting made and you get the response, then that's when types from typescript will be used to ensure there is no bugs in the data
+-> Redux toolkit
+	-These are a set of utilities and tools that simplify the process of building applications using redux
+	-Redux is a popular state management library for javascript applications
+	-In this project, redux toolkit will be used to manage state so that state can be accessed globally
+	-Redux toolkit query will be used on top of that to make API calls and so that the data can be stored in the global store easily
+-> Now go to state folder and add api.ts 
+	-This is where the bolierplate for the redux toolkit query will be implemented
+	-"getKpis: build.query<void, void>"
+	-The "<void, void>" above makes it so that we can use the endpoint without any errors, if we have no arguments yet
+	-If one uses the endpoint without the "<void, void>" it throws an error (Expected 1-2 arguments but got 0) asking for arguments
+-> Go to Row1.tsx and add the hook for the API call "useGetKpisQuery()"
+-> Go to main.tsx and set up the Provider and Store for the API
+-> Setting up the backend
+	-Create the "server" directory inside the root
+-> Inside the server directory in the terminal:
+	-Do "npm init -y" to initialize npm packages and the package.json file with all the default settings
+	-Install express "npm i express" which is the framework for node.js to handle APIs
+	-Install body-parser "npm i body-parser" which handles the info that's coming from the body of a request
+	-Install cors "npm i cors" which handles cross-origin resource sharing requests so that you can call from a different url
+	-Install dotenv "npm i dotenv" to handle environment variables
+	-Install helmet "npm i helmet" for API endpoint security
+	-Install morgan "npm i morgan" for handling console logs so that any time an endpoint is hit, it will console.log info
+	-Install mongoose "npm i mongoose" which is an ORM used for MongoDB
+	-Install mongoose-currency "npm i mongoose-currency" which enables handling of numbers and values that are monetary (like currency values)
+-> Once done installing the above;
+	-Install "npm i -D nodemon" which installs nodemon as a dev dependency
+		-nodemons allows for the running of the server and auto-refereshing upon a file change
+-> Inside the "server" directory, create "index.js" file
+-> In order to be able to use "imports" i.e "import express from..."
+	-Go to package.json and under "main": "index.js" add "type":"module"
+-> In order to be able to run the server-side "index.js" file;
+	-Go to package.json and under "test": "echo \"Error....." add "dev": "nodemon index.js"
